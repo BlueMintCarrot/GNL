@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joanda-s <joanda-s@student.42.fr>          +#+  +:+       +#+        */
+/*   By: joanda-s <joanda-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 20:05:53 by joanda-s          #+#    #+#             */
-/*   Updated: 2023/08/29 20:17:23 by joanda-s         ###   ########.fr       */
+/*   Updated: 2023/08/29 20:40:08 by joanda-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*get_next_line(int fd)
 	}
 	while (buffer[i] != '\n' && i < BUFFER_SIZE)
 		i++;
-	while (buffer[i] != 0 || read(fd, buffer, BUFFER_SIZE) > 0)
+	while (*buffer != 0 || read(fd, buffer, BUFFER_SIZE) > 0)
 	{
 		line = ft_strjoin(line, buffer);
 		if (ft_checknl(buffer))
